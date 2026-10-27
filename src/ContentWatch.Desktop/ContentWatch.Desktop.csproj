@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>WinExe</OutputType><AllowUnsafeBlocks>true</AllowUnsafeBlocks><ApplicationManifest>app.manifest</ApplicationManifest><AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../ContentWatch.Rendering/ContentWatch.Rendering.csproj" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.6" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.6" />
+    <PackageReference Include="SharpHook" Version="8.0.1" />
+    <PackageReference Include="Tmds.DBus.Protocol" Version="0.21.3" />
+    <EmbeddedResource Include="Overlay.html" />
+    <None Include="../../artifacts/native/ContentWatch.Spout.dll" Link="ContentWatch.Spout.dll" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" Condition="Exists('../../artifacts/native/ContentWatch.Spout.dll')" />
+  </ItemGroup>
+</Project>

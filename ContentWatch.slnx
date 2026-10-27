@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ContentWatch.Core/ContentWatch.Core.csproj" />
+    <Project Path="src/ContentWatch.Desktop/ContentWatch.Desktop.csproj" />
+    <Project Path="src/ContentWatch.Rendering/ContentWatch.Rendering.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ContentWatch.Tests/ContentWatch.Tests.csproj" />
+  </Folder>
+</Solution>
