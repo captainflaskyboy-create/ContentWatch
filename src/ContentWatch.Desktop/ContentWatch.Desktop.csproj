@@ -3,6 +3,7 @@
   <PropertyGroup>
     <AssemblyName>ContentWatch</AssemblyName>
     <RootNamespace>ContentWatch.Desktop</RootNamespace>
+    <ApplicationIcon>Assets/Branding/contentwatch.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../ContentWatch.Rendering/ContentWatch.Rendering.csproj" />
@@ -12,6 +13,7 @@
     <PackageReference Include="SharpHook" Version="8.0.1" />
     <PackageReference Include="Tmds.DBus.Protocol" Version="0.21.3" />
     <EmbeddedResource Include="Overlay.html" />
+    <AvaloniaResource Include="Assets/Branding/*.png;Assets/Branding/*.ico" />
     <EmbeddedResource Include="../../LICENSE;../../THIRD-PARTY-NOTICES.md;../../docs/Spout2-LICENSE.txt;../../docs/licenses/*.txt" LogicalName="ContentWatch.Notices.%(Filename)%(Extension)" />
     <None Include="../../artifacts/native/ContentWatch.Spout.dll" Link="ContentWatch.Spout.dll" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" Condition="Exists('../../artifacts/native/ContentWatch.Spout.dll')" />
   </ItemGroup>

@@ -20,6 +20,7 @@ Updated for the simplified Timer / Stopwatch / OBS / Settings interface on 2026-
 - Copied only `ContentWatch.exe` into an otherwise empty folder, launched it with an isolated profile and a fresh native-extraction cache, and verified browser output became ready.
 - The actual Spout receiver received 89 frames from this single-file process, with transparent and visible pixels. Loaded-module inspection confirmed Skia and the Spout bridge came from the fresh bundle cache, not loose files beside the executable.
 - The publish output contains only the executable, approximately 60 MB. Runtime configuration includes the self-contained .NET and ASP.NET Core frameworks. License texts are embedded and available through Settings → Third-party notices.
+- Clock icon update: built an eight-size Windows ICO from the generated branding PNG, embedded it in the executable, and applied it to Avalonia windows. Windows successfully extracted the new icon at 32×32. The rebuilt single-file app started with its embedded icon resources, served browser frames, and delivered 89 transparent/visible frames through the actual Spout receiver.
 
 ## Current Windows UI and output checks
 
