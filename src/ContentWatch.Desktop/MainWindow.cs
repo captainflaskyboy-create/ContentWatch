@@ -293,7 +293,33 @@ public sealed class MainWindow : Window
             });
             ConfigureShortcuts(); message.Text = "Settings saved.";
         })));
+        panel.Children.Add(ActionButton("Third-party notices", async () => await ShowNotices()));
         return Scroll(panel);
+    }
+
+    private async Task ShowNotices()
+    {
+        var assembly = typeof(MainWindow).Assembly;
+        var notices = assembly.GetManifestResourceNames()
+            .Where(name => name.StartsWith("ContentWatch.Notices.", StringComparison.Ordinal))
+            .OrderBy(name => name)
+            .Select(name =>
+            {
+                using var reader = new StreamReader(assembly.GetManifestResourceStream(name)!);
+                return name["ContentWatch.Notices.".Length..] + "\n\n" + reader.ReadToEnd();
+            });
+        var dialog = new Window
+        {
+            Title = "ContentWatch — licenses and notices",
+            Width = 650, Height = 500, WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            Content = new TextBox
+            {
+                Text = string.Join("\n\n────────────────────────\n\n", notices),
+                IsReadOnly = true, AcceptsReturn = true, TextWrapping = TextWrapping.Wrap,
+                Margin = new Thickness(16)
+            }
+        };
+        await dialog.ShowDialog(this);
     }
 
     private void ConfigureShortcuts() => shortcuts.Configure(application.Settings.StartShortcut, application.Settings.PauseShortcut, application.Settings.ResetShortcut);

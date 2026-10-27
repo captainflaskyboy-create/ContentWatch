@@ -13,6 +13,14 @@ Updated for the simplified Timer / Stopwatch / OBS / Settings interface on 2026-
 - The actual Spout GPU integration test compares received BGRA bytes exactly with the shared renderer after pause, adjustment, reset, restore, resume, countdown completion and overtime. It uses a real unique native sender and receiver, not mocks.
 - Background-worker tests run without an Avalonia window and verify advancing time, identical paused frames, adjustment publication and automatic recovery restoration.
 
+## Single-file Windows build
+
+- Published a self-contained Windows x64 executable named `ContentWatch.exe`, with compressed managed assemblies and native libraries bundled for automatic extraction. No trimming is used.
+- Re-ran all 27 release tests after renaming the assembly; all passed, including real GPU readback.
+- Copied only `ContentWatch.exe` into an otherwise empty folder, launched it with an isolated profile and a fresh native-extraction cache, and verified browser output became ready.
+- The actual Spout receiver received 89 frames from this single-file process, with transparent and visible pixels. Loaded-module inspection confirmed Skia and the Spout bridge came from the fresh bundle cache, not loose files beside the executable.
+- The publish output contains only the executable, approximately 60 MB. Runtime configuration includes the self-contained .NET and ASP.NET Core frameworks. License texts are embedded and available through Settings → Third-party notices.
+
 ## Current Windows UI and output checks
 
 - Launched an isolated profile using `CONTENTWATCH_DATA_DIR`, port 17846 and sender `ContentWatch.UI Test`, leaving the existing profile untouched.

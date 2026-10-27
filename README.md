@@ -4,7 +4,9 @@ A compact desktop timer and stopwatch for recording timed challenges. Built with
 
 ## Run on Windows
 
-Extract the whole `ContentWatch-win-x64.zip`, then run `ContentWatch.Desktop.exe`. Keep all accompanying DLLs beside it. The portable package includes .NET and the native Spout2 bridge. The build is unsigned.
+Double-click **ContentWatch.exe**. The single-file Windows x64 build includes .NET, Avalonia, the browser overlay and the native Spout2 bridge; no installation or DLLs beside the executable are needed. On first launch .NET automatically unpacks native libraries into its temporary cache. Settings and checkpoints remain in application data. The build is unsigned.
+
+For the older folder/ZIP package, extract the whole folder and keep its accompanying DLLs together. Licenses and third-party notices are available inside the application under **Settings → Third-party notices**.
 
 The four navigation buttons are **Timer, Stopwatch, OBS, Settings**.
 
@@ -64,6 +66,7 @@ Install .NET SDK 10. Windows native builds also need Visual Studio 2022 Build To
 dotnet run --project src/ContentWatch.Desktop
 dotnet test ContentWatch.slnx
 ./scripts/package-windows.ps1
+./scripts/package-single-file.ps1
 ./artifacts/native/SpoutSmoke.exe
 ./artifacts/native/SpoutInspect.exe ContentWatch
 ```
